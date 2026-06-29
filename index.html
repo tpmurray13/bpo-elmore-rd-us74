@@ -52,7 +52,7 @@
       margin-top: 24px; border-radius: var(--radius); overflow: hidden;
       border: 1px solid var(--line); box-shadow: var(--shadow); position: relative;
     }
-    .aerial-wrap img { width: 100%; display: block; max-height: 460px; object-fit: cover; object-position: center top; }
+    .aerial-wrap img { width: 100%; display: block; height: auto; }
     .aerial-caption {
       position: absolute; bottom: 0; left: 0; right: 0;
       background: linear-gradient(transparent, rgba(15,92,99,.85));
@@ -109,15 +109,55 @@
     .preparer .name { font-weight: 700; font-size: 1rem; }
     .preparer .title { font-size: .85rem; color: var(--muted); }
 
+
+    /* PRINT BUTTON */
+    .print-bar {{ text-align: right; margin-bottom: 16px; }}
+    .print-btn {{
+      display: inline-block; padding: 10px 22px; background: var(--accent); color: #fff;
+      border-radius: 999px; font-size: .88rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; cursor: pointer; border: none; text-decoration: none;
+      box-shadow: 0 4px 14px rgba(15,92,99,.25);
+    }}
+    .print-btn:hover {{ background: #0a464c; }}
+    @media print {{
+      .print-bar {{ display: none !important; }}
+      body {{ background: #fff; }}
+      .hero, .section, .kpi {{ box-shadow: none; border: 1px solid #ccc; }}
+      .wrap {{ padding: 10px; }}
+    }}
     @media (max-width: 960px) {
       .hero-grid, .grid-2, .kpis { grid-template-columns: 1fr; }
       .kpis { grid-template-columns: repeat(2,1fr); }
+    }
+
+    /* PRINT */
+    .print-bar { text-align: right; margin-bottom: 16px; }
+    .print-btn {
+      display: inline-block; padding: 10px 22px; background: var(--accent); color: #fff;
+      border-radius: 999px; font-size: .88rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; cursor: pointer; border: none; text-decoration: none;
+      box-shadow: 0 4px 14px rgba(15,92,99,.25);
+    }
+    .print-btn:hover { background: #0a464c; }
+    @media print {
+      .print-bar { display: none !important; }
+      body { background: #fff; }
+      .hero, .section, .kpi { box-shadow: none; border: 1px solid #ccc; }
+      .wrap { padding: 10px; }
     }
   </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="print-bar">
+    <a class="print-btn" href="javascript:window.print()">&#128438;&nbsp; Print / Save as PDF</a>
+  </div>
 
+
+  <!-- PRINT BAR -->
+  <div class="print-bar">
+    <a class="print-btn" href="javascript:window.print()">&#128438; Print / Save as PDF</a>
+  </div>
   <!-- HERO -->
   <section class="hero">
     <div class="eyebrow">Broker Price Opinion &nbsp;·&nbsp; HC Highway Commercial Land &nbsp;·&nbsp; Scotland County, NC &nbsp;·&nbsp; Internal / File Use</div>
